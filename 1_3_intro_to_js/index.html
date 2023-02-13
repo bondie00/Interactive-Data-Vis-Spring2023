@@ -10,9 +10,29 @@
   <h1>Hello World!</h1>
   <h3>Tutorial Assignment: 1_3_intro_to_js </h3>
   <!-- add any HTML you might need here, like a button or a div -->
+
+  <button onClick="buttonCounter()">Click Here</button><br>
+  <label for="counting">You have clicked the button <span id="buttonClicks">0</span> times </label>
+
+
+  <br><br>
+  <label>Enter some of your favorite foods</label>
+  <input type="text" id="food-input"></input>
+  <button onClick="foodCounter()">Submit</button>
+  <button onClick="reset()">Reset</button>
+  <br>
+  <label for="food-count">You have entered <span id="foodCount">0</span> foods</label>
+  <br><br>
+  <div id = "food-list"></div>
+
+  
+
+  <script src="main.js"></script>
+
+  <!-- Code from class
   <label for="'names-input">Enter your name here</label>
   <input id="name-input" name="names-input"></input>
   <button onClick="updateName()">Submit</button>
-  <script src="main.js"></script>
+  <script src="main.js"></script> -->
 </body>
 </html>
