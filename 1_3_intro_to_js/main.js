@@ -1,3 +1,6 @@
+
+
+
 let count = 0
 
 function buttonCounter() {
@@ -5,23 +8,28 @@ function buttonCounter() {
     document.getElementById("buttonClicks").innerHTML = count
   }
 
-let foodCount = 0
-let foodArray = []
 
-function foodCounter() {
-    foodCount++
-    document.getElementById("foodCount").innerHTML = foodCount
-    const food = document.getElementById('food-input').value
-    foodArray[foodArray.length]=food
-    document.getElementById('food-list').innerHTML = foodArray
-}
 
-function reset() {
-    foodCount=0
-    foodArray=[]
-    document.getElementById("foodCount").innerHTML = foodCount
-    document.getElementById('food-list').innerHTML = foodArray
-}
+
+
+
+// let foodCount = 0
+// let foodArray = []
+
+// function foodCounter() {
+//     foodCount++
+//     document.getElementById("foodCount").innerHTML = foodCount
+//     const food = document.getElementById('food-input').value
+//     foodArray[foodArray.length]=food
+//     document.getElementById('food-list').innerHTML = foodArray
+// }
+
+// function reset() {
+//     foodCount=0
+//     foodArray=[]
+//     document.getElementById("foodCount").innerHTML = foodCount
+//     document.getElementById('food-list').innerHTML = foodArray
+// }
 
 
 
