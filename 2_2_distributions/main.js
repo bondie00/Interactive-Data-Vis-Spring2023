@@ -2,7 +2,6 @@
 const width = window.innerWidth * 0.9,
   height = window.innerHeight * 0.8,
   margin = { top: 60, bottom: 40, left: 60, right: 20 }
-  //radius = ;
 
 /* LOAD DATA */
 d3.csv("../data/cowboys_cleaned.csv", d3.autoType)
@@ -13,6 +12,7 @@ d3.csv("../data/cowboys_cleaned.csv", d3.autoType)
       .attr("width", width)
       .attr("height", height)
       
+    //scales
     const xScale = d3.scaleLinear()
       .domain(d3.extent(data, d => d.cowboys_score))
       .range([margin.left, width - margin.right])
@@ -29,6 +29,8 @@ d3.csv("../data/cowboys_cleaned.csv", d3.autoType)
        .domain(["win", "lose"])
        .range(["blue", "red"])
     
+    
+    //x-axis
     const xAxis = d3.axisBottom(xScale)  
     svg
       .append("g")
@@ -44,6 +46,7 @@ d3.csv("../data/cowboys_cleaned.csv", d3.autoType)
       .attr("fill", "black")
       .attr("text-anchor", "middle")
     
+    //y-axis
     const yAxis = d3.axisLeft(yScale)
     svg
       .append("g")
@@ -51,48 +54,51 @@ d3.csv("../data/cowboys_cleaned.csv", d3.autoType)
       .style("transform", `translate(${margin.left}px, 0px)`)
       .call(yAxis)
     
-      svg
-        .append("text")
-        .attr("class", "yAxisLabel")
-        .attr('transform', 'translate('+(margin.left - 35)+',' +height/2+ ') rotate(-90)')
-        .text("Quaterback passer rating")
-        .attr("fill", "black")
-        .attr("text-anchor", "middle")
-        
-      svg
-        .append("text")
-        .attr("class", "title")
-        .text("Dallas Cowboys' team performance by QB performance")
-        .style("transform", `translate(${width/2}px, ${margin.top - 20}px)`)
-        .attr("fill", "black")
-        .attr("text-anchor", "middle")
-        .attr("font-size", "18pt")
+    svg
+      .append("text")
+      .attr("class", "yAxisLabel")
+      .attr('transform', 'translate('+(margin.left - 35)+',' +height/2+ ') rotate(-90)')
+      .text("Quaterback passer rating")
+      .attr("fill", "black")
+      .attr("text-anchor", "middle")
       
-      svg
-        .append("text")
-        .attr("class", "key")
-        .text("blue = game won")
-        .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 90}px)`)
-        .attr("fill", "black")
-        .attr("text-anchor", "start")
-        .attr("font-size", "10pt")
-        svg
-        .append("text")
-        .attr("class", "key")
-        .text("red = game lost")
-        .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 75}px)`)
-        .attr("fill", "black")
-        .attr("text-anchor", "start")
-        .attr("font-size", "10pt")
-        svg
-        .append("text")
-        .attr("class", "key")
-        .text("dot size = win/loss margin")
-        .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 60}px)`)
-        .attr("fill", "black")
-        .attr("text-anchor", "start")
-        .attr("font-size", "10pt")
-    
+    //title
+    svg
+      .append("text")
+      .attr("class", "title")
+      .text("Dallas Cowboys' team performance by QB performance")
+      .style("transform", `translate(${width/2}px, ${margin.top - 20}px)`)
+      .attr("fill", "black")
+      .attr("text-anchor", "middle")
+      .attr("font-size", "18pt")
+      
+      //legend
+    svg
+      .append("text")
+      .attr("class", "key")
+      .text("blue = game won")
+      .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 90}px)`)
+      .attr("fill", "black")
+      .attr("text-anchor", "start")
+      .attr("font-size", "10pt")
+    svg
+      .append("text")
+      .attr("class", "key")
+      .text("red = game lost")
+      .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 75}px)`)
+      .attr("fill", "black")
+      .attr("text-anchor", "start")
+      .attr("font-size", "10pt")
+    svg
+      .append("text")
+      .attr("class", "key")
+      .text("dot size = win/loss margin")
+      .style("transform", `translate(${width - margin.right - 140}px, ${height - margin.bottom - 60}px)`)
+      .attr("fill", "black")
+      .attr("text-anchor", "start")
+      .attr("font-size", "10pt")
+  
+    //scatterplot data points
     const dots = svg 
       .selectAll("circle.dataPoint")
       .data(data)

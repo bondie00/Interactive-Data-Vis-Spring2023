@@ -6,30 +6,6 @@ height = window.innerHeight * 0.7,
 d3.csv("../data/squirrelActivities.csv", d3.autoType).then(Squirrel => {
   console.log("data", Squirrel)
 
-
-  //dot looks for class, pound looks for id
-const table = d3.select("#container")
-  .append("table")
-  
-  table.append("thead")
-  table.append("tbody")
-    .append("tr")
-    .attr('class','row')
-
-  const tobdy = table.append("tbody")
-
-  const row = tobdy.selectAll("tr")
-    .data(Squirrel)
-    .join("tr")
-    .attr("activity", "count")
-
-    row.append("td")
-      .text(data => data.activity)
-    
-    row.append("td")
-      .text(data => data.count)
-
-
   /* SCALES */
   /** This is where you should define your scales from data to pixel space */
   const yScale = d3.scaleBand()
