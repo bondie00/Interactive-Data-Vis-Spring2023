@@ -44,12 +44,12 @@ const width = window.innerWidth * 0.9,
 
 
   const rScaleDown = d3.scaleSqrt()
-      .domain([Math.min(Math.abs(...heatDown.map(d => d.Change))), Math.abs(Math.min(...heatDown.map(d => d.Change)))])
-      .range([2, 7])
+      .domain([Math.abs(Math.max(...heatDown.map(d => d.Change))), Math.abs(Math.min(...heatDown.map(d => d.Change)))])
+      .range([1, 7])
 
   const rScaleUp = d3.scaleSqrt()
     .domain([Math.min(...heatUp.map(d => d.Change)), Math.max(...heatUp.map(d => d.Change))])
-    .range([2, 7])
+    .range([1, 7])
 
   // APPEND DATA AS SHAPE
   const heatDownCircles = svg.selectAll("circle.heatDown")

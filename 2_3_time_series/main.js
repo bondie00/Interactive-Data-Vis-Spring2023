@@ -60,15 +60,19 @@ d3.csv("../data/NFCeastwins2022 - Sheet2.csv", d3.autoType)
     //stack keys
     const stack = d3.stack()
       .keys(["DAL_wins", "PHI_wins", "NYG_wins", "WAS_wins"])
+      //(data)
   
     //area generator
     const area = d3.area()
-      .x(d => xScale(d.week))
-      .y0(d => yScale(d.values[0]))
-      .y1(d => yScale(d.values[1]))
+      .x(d => xScale(d.data.schedule_week))
+      .y0(d => yScale(d[0]))
+      .y1(d => yScale(d[1]))
 
     //construct stack
     const stackedValues = stack(data)
+
+   console.log("data", data)
+    console.log("stackedValues", stackedValues)
 
     const stackedData = []
     
@@ -88,13 +92,14 @@ console.log("stackedData", stackedData)
     
     //append stacked bar chart areas
     const chart = svg.selectAll(".series")
-      .data(stackedData)
+      .data(stackedValues)
       .join("path")
       .attr("class", "series")
+      .attr("d", d => {console.log("d", d)})
       .attr("d", d => area(d))
       .attr("stroke", "black")
       .attr("fill", "none")
-      // /.attr("fill", d => colorScale(d.key))
+      .attr("fill", d => colorScale(d.key))
 });
 
     
