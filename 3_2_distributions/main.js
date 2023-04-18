@@ -186,8 +186,6 @@ function draw() {
       removeTooltip()
     })
 
-
-
 }
 
 function drawTooltip(e, d) {
@@ -199,10 +197,34 @@ function drawTooltip(e, d) {
       .style('display', 'block')
       .style('top', e.pageY + 10 + 'px')
       .style('left', e.pageX + 10 + 'px')
-      .html(
-       "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
-        + d.team_score + 
-        " pts scored<br>" + d.pass_rating + " passer rating<br>" + d.point_difference + " pt difference"
+      .html(function() {
+        if ((d.team === d.home_team) & (d.win_lose == "win")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.home_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " won by " + d.point_difference + " pts"
+        } if ((d.team === d.home_team) & (d.win_lose == "lose")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.home_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " lost by " + d.point_difference + " pts"
+        } if ((d.team === d.vis_team) & (d.win_lose == "lose")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.vis_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " lost by " + d.point_difference + " pts"
+        } if ((d.team === d.vis_team) & (d.win_lose == "win")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.vis_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " won by " + d.point_difference + " pts"
+        } if ((d.team === d.home_team) & (d.win_lose == "tie")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.home_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " and " + d.vis_team + " tied"
+        } if ((d.team === d.vis_team) & (d.win_lose == "tie")) {
+          return "<b>" + d.vis_team + " @ " + d.home_team  + " (" + d.game_date + ")</b><br>"    
+          + d.vis_team + " scored " + d.team_score + 
+          " pts<br>" + d.player + " had a " + d.pass_rating + " passer rating<br>" + d.team + " and " + d.home_team + " tied"
+        }
+      }
+       
       )
 
 
