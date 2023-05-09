@@ -1,7 +1,10 @@
+html {
+  background: white;
+}
+
 body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
-  padding: 1em;
 }
 
 h1 {
@@ -16,6 +19,28 @@ h3 {
 
 p {
   font-size: 1em;
+}
+
+.button {
+  position: absolute;
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  border-color: red;
+}
+
+.returnButton {
+  position:absolute;
+}
+
+.tooltip {
+  background-color: white;
+  font: 13px "Roboto Slab", sans-serif;
+  position: absolute;
+  z-index: 10;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #A4A0A7;
 }
 
 .tooltip {

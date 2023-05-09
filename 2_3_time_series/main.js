@@ -74,21 +74,21 @@ d3.csv("../data/NFCeastwins2022 - Sheet2.csv", d3.autoType)
    console.log("data", data)
     console.log("stackedValues", stackedValues)
 
-    const stackedData = []
+//     const stackedData = []
     
-    stackedValues.forEach((layer, index) => {
-      const currentStack = []
-      layer.forEach((d, i, dataArray) => {
-        currentStack.push({
-          values: d,
-          week: data[i].schedule_week,
-          key: dataArray.key
-        })
-      })
-      stackedData.push(currentStack)
-    })
+//     stackedValues.forEach((layer, index) => {
+//       const currentStack = []
+//       layer.forEach((d, i, dataArray) => {
+//         currentStack.push({
+//           values: d,
+//           week: data[i].schedule_week,
+//           key: dataArray.key
+//         })
+//       })
+//       stackedData.push(currentStack)
+//     })
 
-console.log("stackedData", stackedData)
+// console.log("stackedData", stackedData)
     
     //append stacked bar chart areas
     const chart = svg.selectAll(".series")
