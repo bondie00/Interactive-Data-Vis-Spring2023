@@ -29,26 +29,26 @@ p {
   border-color: red;
 }
 
-.returnButton {
-  position:absolute;
+#goButton {
+  position: absolute;
 }
 
-.tooltip {
-  background-color: white;
-  font: 13px "Roboto Slab", sans-serif;
-  position: absolute;
-  z-index: 10;
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: 1px solid #A4A0A7;
+.mainlabel {
+  font-size: 13px;
+  text-anchor: middle;
 }
 
-.tooltip {
-  background-color: white;
-  font: 13px "Roboto Slab", sans-serif;
-  position: absolute;
-  z-index: 10;
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: 1px solid #A4A0A7;
+.sublabel {
+  font-size: 13px;
 }
+
+.guaminfo {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.startingtext {
+font-weight: bold;
+}
+
+
